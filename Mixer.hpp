@@ -2,7 +2,7 @@
 
 #ifndef _MIXER_H
 #define _MIXER_H
-#include "Cell.hpp"
+#include "Facility.hpp"
 
 class Mixer: public Facility{
     private:
