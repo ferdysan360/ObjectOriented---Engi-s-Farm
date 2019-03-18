@@ -8,7 +8,6 @@ class MeatProducingAnimal: public FarmAnimal{
 	private:
 		const int typeAnimal = 2;
 	public:
-		void sound();
 		int getTypeAnimal();
 };
 

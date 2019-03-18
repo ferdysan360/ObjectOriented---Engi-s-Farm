@@ -12,6 +12,7 @@ class FarmAnimal{
 		// FarmAnimal();
 		virtual void sound() = 0;
 		virtual int getTypeAnimal() = 0;
+		virtual void addProduct() = 0;
 		int getHungry();
 		int getX();
 		int getY();

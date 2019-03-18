@@ -8,8 +8,8 @@ class MilkProducingAnimal: public FarmAnimal{
 	private:
 		const int typeAnimal = 3;
 	public:
-		void sound();
 		int getTypeAnimal();
+		virtual void addMilk() = 0; // menambah Milk ke tas player
 };
 
 #endif

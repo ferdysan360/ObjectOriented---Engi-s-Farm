@@ -9,8 +9,7 @@ class EggProducingAnimal: public FarmAnimal{
 		const int typeAnimal = 1;
         
 	public:
-		virtual void sound() = 0;
-		// void addEgg(); // menambah telur ke tas player
+		virtual void addEgg() = 0; // menambah telur ke tas player
 		int getTypeAnimal();
 };
 

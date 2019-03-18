@@ -6,6 +6,7 @@
 #define MAX_WATER 100
 #define MAX_BAG 10
 #include "Product.hpp"
+#include "FarmAnimal.hpp"
 
 class Player {
     private:
@@ -22,7 +23,9 @@ class Player {
 
         Player& operator=(const Player&); // operator= overloading class player
 
+        void Interact(FarmAnimal*); // {F->addProduct()}
 
+        void Kill();
 
 };
 
