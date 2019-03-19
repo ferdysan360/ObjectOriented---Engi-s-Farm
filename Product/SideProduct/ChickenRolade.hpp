@@ -11,7 +11,7 @@ class ChickenRolade: public SideProduct {
         ChickenRolade() : SideProduct("Chicken Rolade", 1, 10){}
         string getName_SProduct(); // return name
         int getType_SProduct(); //return typeEgg;        
-        int getPrice_Sproduct(); //return price;        
+        int getPrice_SProduct(); //return price;        
 };
 
 

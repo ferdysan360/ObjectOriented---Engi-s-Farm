@@ -11,7 +11,7 @@ class SusuTelurMaduJahe: public SideProduct {
         SusuTelurMaduJahe() : SideProduct("Susu Telur Madu Jahe", 8, 5){}
         string getName_SProduct(); // return name
         int getType_SProduct(); //return typeSProduct;        
-        int getPrice_Sproduct(); //return price;        
+        int getPrice_SProduct(); //return price;        
 };
 
 

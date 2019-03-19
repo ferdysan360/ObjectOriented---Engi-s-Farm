@@ -4,9 +4,10 @@
 using namespace std;
 
 class FarmProduct: public Product {
-    private:
-        
+    protected:
+        const int type_product;
     public:
+        FarmProduct(string _name, int _type_fproduct, int _price) : Product(_name,_price), type_fproduct(_type_fproduct){}
         
 };
 

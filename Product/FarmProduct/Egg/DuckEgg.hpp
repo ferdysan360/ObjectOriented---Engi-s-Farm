@@ -6,13 +6,12 @@ using namespace std;
 
 class DuckEgg : public Egg {
     private:
-        const string name = "Duck Egg";
-        const int type = 2;
-        const int price = 20;
+
     public:
-        int getName(); //return name
-        int getTypeProduct(); //return typeEgg;
-        int getPrice(); //return price;        
+        ChickenEgg(): Egg("Duck Egg",2, 20){}
+        string getName_FProduct(); // return name
+        int getType_FProduct(); //return typeEgg;        
+        int getPrice_FProduct(); //return price;
 };
 
 #endif

@@ -11,7 +11,7 @@ class SusuKambingInstan: public SideProduct {
         SusuKambingInstan() : SideProduct("Susu Kambing Instan", 10, 8){}
         string getName_SProduct(); // return name
         int getType_SProduct(); //return typeSProduct;        
-        int getPrice_Sproduct(); //return price;        
+        int getPrice_SProduct(); //return price;        
 };
 
 

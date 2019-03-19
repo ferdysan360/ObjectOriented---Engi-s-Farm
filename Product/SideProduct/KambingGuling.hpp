@@ -11,7 +11,7 @@ class KambingGuling: public SideProduct {
         KambingGuling() : SideProduct("Kambing Guling", 7, 18){}
         string getName_SProduct(); // return name
         int getType_SProduct(); //return typeSProduct;        
-        int getPrice_Sproduct(); //return price;        
+        int getPrice_SProduct(); //return price;        
 };
 
 

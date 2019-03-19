@@ -11,7 +11,7 @@ class KapsulEkstrakSusuKuda: public SideProduct {
         KapsulEkstrakSusuKuda() : SideProduct("Kapsul Ekstrak Susu Kuda", 9, 8){}
         string getName_SProduct(); // return name
         int getType_SProduct(); //return typeSProduct;        
-        int getPrice_Sproduct(); //return price;        
+        int getPrice_SProduct(); //return price;        
 };
 
 

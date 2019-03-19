@@ -9,7 +9,6 @@ class Product {
 
     public:
         Product(string name, int price): name(name), price(price){}
-
         int getPrice();
 };
 
