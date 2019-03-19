@@ -8,10 +8,7 @@ class KudaBakarTelur: public SideProduct {
     private:
 
     public:
-        KudaBakarTelur() : SideProduct("Kuda Bakar Telur", 6, 25){}
-        string getName_SProduct(); // return name
-        int getType_SProduct(); //return typeSProduct;        
-        int getPrice_SProduct(); //return price;        
+        KudaBakarTelur() : SideProduct("Kuda Bakar Telur", 17, 25){}       
 };
 
 

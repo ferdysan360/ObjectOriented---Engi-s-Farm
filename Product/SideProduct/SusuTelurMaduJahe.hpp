@@ -8,10 +8,7 @@ class SusuTelurMaduJahe: public SideProduct {
     private:
         
     public:
-        SusuTelurMaduJahe() : SideProduct("Susu Telur Madu Jahe", 8, 5){}
-        string getName_SProduct(); // return name
-        int getType_SProduct(); //return typeSProduct;        
-        int getPrice_SProduct(); //return price;        
+        SusuTelurMaduJahe() : SideProduct("Susu Telur Madu Jahe", 19, 5){}     
 };
 
 

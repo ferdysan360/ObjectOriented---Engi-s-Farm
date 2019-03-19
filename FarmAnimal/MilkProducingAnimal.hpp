@@ -1,15 +1,13 @@
 #ifndef _MILK_PRODUCING_ANIMAL_HPP
 #define _MILK_PRODUCING_ANIMAL_HPP
 #include <string>
-#include "FarmAnimal.hpp"
+#include "../FarmAnimal.hpp"
 using namespace std;
 
 class MilkProducingAnimal: public FarmAnimal{
-	private:
-		const int typeAnimal = 3;
 	public:
-		int getTypeAnimal();
-		virtual void addMilk() = 0; // menambah Milk ke tas player
+		MilkProducingAnimal(int _x, int _y, string _voice, int _typeAnimal):FarmAnimal(_x, _y, _voice,  _typeAnimal){}
+		void move(char c);
 };
 
 #endif

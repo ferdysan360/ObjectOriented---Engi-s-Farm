@@ -4,14 +4,12 @@
 #include "MeatProducingAnimal.hpp"
 using namespace std;
 
-class Bebek: public EggProducingAnimal, public MeatProducingAnimal {
-    private:
-        const string voice = "Kwek Kwek";
-
+class Bebek: public EggProducingAnimal, public MeatProducingAnimal 
+{
     public:
-        Bebek();
+        Bebek(int _x, int _y) : EggProducingAnimal(_x, _y, "Kwek kwek", 2), MeatProducingAnimal(_x, _y, "Kwek kwek", 2){} // ctor
         void sound(); //cout voice
-        void addEgg(); // menambah telur bebek ke tas player
+        void extract(); // menambah telur ayam ke tas player
 };
 
 

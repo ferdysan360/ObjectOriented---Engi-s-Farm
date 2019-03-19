@@ -11,7 +11,7 @@ class Coop: public Land{
         //ctor
         Coop(): Land(2)
         {
-
+            isOccupied = false;
         }
 };
 #endif

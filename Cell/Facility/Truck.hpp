@@ -3,6 +3,7 @@
 #ifndef _TRUCK_H
 #define _TRUCK_H
 #include "../Facility.hpp"
+#include <vector>
 
 class Truck : public Facility{
     private:
@@ -23,9 +24,9 @@ class Truck : public Facility{
             truck_status = newStatus;
         }
 
-        void sellProduct(Product* p,int* gameMoney) //mendapat price dari p lalu menambah uang game sebesar itu
+        void sellProduct(vector<Product>* bag,int* gameMoney) //mendapat price dari setiap item di bag lalu menambah uang game sebesar itu
         {
-            *gameMoney += (*p).getPrice();
+            
         }
 };
 #endif

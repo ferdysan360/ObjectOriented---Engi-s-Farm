@@ -9,9 +9,6 @@ class CowMilk : public Milk {
 
     public:
         CowMilk(): Milk("Cow Milk", 10, 9){}
-        string getName_FProduct(); // return name
-        int getType_FProduct(); //return typeEgg;        
-        int getPrice_FProduct(); //return price;
 };
 
 #endif

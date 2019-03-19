@@ -11,7 +11,7 @@ class Grassland: public Land{
         //ctor
         Grassland(): Land(3)
         {
-
+            isOccupied = false;
         }
 };
 #endif

@@ -8,10 +8,7 @@ class AngsaGeprek: public SideProduct {
     private:
 
     public:
-        AngsaGeprek() : SideProduct("Angsa Geprek", 3, 12){}
-        string getName_SProduct(); // return name
-        int getType_SProduct(); //return typeSProduct;        
-        int getPrice_SProduct(); //return price;        
+        AngsaGeprek() : SideProduct("Angsa Geprek", 15, 12){}       
 };
 
 

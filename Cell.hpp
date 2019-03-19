@@ -2,14 +2,19 @@
 
 #ifndef _CELL_H
 #define _CELL_H
-#include "Player.hpp"
-
 
 class Cell {
+    protected:
+        char renderChar;
+
     public:
         Cell();
-        virtual int getTypeCell() = 0;
+
+        //mengembalikan char sesuai status dari cell, apakah occupied ataukah facility dll
+        char getRenderable();
+
         // type 1 = facility
         // type 2 = land
+        virtual int getTypeCell() = 0;
 };
 #endif

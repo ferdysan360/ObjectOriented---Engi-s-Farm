@@ -5,9 +5,9 @@ using namespace std;
 
 class FarmProduct: public Product {
     protected:
-        const int type_product;
+        
     public:
-        FarmProduct(string _name, int _type_fproduct, int _price) : Product(_name,_price), type_fproduct(_type_fproduct){}
+        FarmProduct(string _name, int _type_product, int _price) : Product(_name, _type_product, _price){}
         
 };
 

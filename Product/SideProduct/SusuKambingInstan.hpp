@@ -8,10 +8,7 @@ class SusuKambingInstan: public SideProduct {
     private:
         
     public:
-        SusuKambingInstan() : SideProduct("Susu Kambing Instan", 10, 8){}
-        string getName_SProduct(); // return name
-        int getType_SProduct(); //return typeSProduct;        
-        int getPrice_SProduct(); //return price;        
+        SusuKambingInstan() : SideProduct("Susu Kambing Instan", 21, 8){}       
 };
 
 

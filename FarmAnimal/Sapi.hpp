@@ -5,13 +5,10 @@
 using namespace std;
 
 class Sapi : public MeatProducingAnimal, public MilkProducingAnimal {
-    private:
-        const string voice = "Moo";
-
     public:
-        Sapi(); // ctor
+        Sapi(int _x, int _y): MeatProducingAnimal(_x, _y, "Moo", 6), MilkProducingAnimal(_x, _y, "Moo", 6){} // ctor
         void sound(); // cout voice
-
+        void extract();
 };
 
 #endif

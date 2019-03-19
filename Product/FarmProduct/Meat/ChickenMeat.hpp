@@ -9,9 +9,6 @@ class ChickenMeat: public Meat {
 
     public:
         ChickenMeat(): Meat("Chicken Meat", 4, 28){}
-        string getName_FProduct(); // return name
-        int getType_FProduct(); //return typeEgg;        
-        int getPrice_FProduct(); //return price;
 };
 
 

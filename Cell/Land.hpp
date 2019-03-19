@@ -7,6 +7,7 @@
 class Land : public Cell{
     protected:
         const int typeLand;
+        bool isOccupied;
         
     public:
         Land(int type): typeLand(type)

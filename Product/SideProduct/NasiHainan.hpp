@@ -8,10 +8,7 @@ class NasiHainan: public SideProduct {
     private:
         
     public:
-        NasiHainan() : SideProduct("Nasi Hainan", 2, 20){}
-        string getName_SProduct(); // return name
-        int getType_SProduct(); //return typeEgg;        
-        int getPrice_SProduct(); //return price;        
+        NasiHainan() : SideProduct("Nasi Hainan", 14, 20){}       
 };
 
 

@@ -4,7 +4,7 @@
 #define _WELL_H
 #include <iostream>
 #include "../Facility.hpp"
-
+#define MAX_WATER 100
 using namespace std;
 
 class Well : public Facility{
@@ -16,6 +16,9 @@ class Well : public Facility{
             
         }
 
-        void getWater();
+        void getWater(int* waterBag)
+        {
+            *waterBag = MAX_WATER;
+        }
 };
 #endif

@@ -8,10 +8,7 @@ class DuckEgg : public Egg {
     private:
 
     public:
-        ChickenEgg(): Egg("Duck Egg",2, 20){}
-        string getName_FProduct(); // return name
-        int getType_FProduct(); //return typeEgg;        
-        int getPrice_FProduct(); //return price;
+        DuckEgg(): Egg("Duck Egg",2, 20){}
 };
 
 #endif

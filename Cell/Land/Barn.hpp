@@ -11,7 +11,7 @@ class Barn: public Land{
         //ctor
         Barn(): Land(1)
         {
-
+            isOccupied = false;
         }
 };
 #endif

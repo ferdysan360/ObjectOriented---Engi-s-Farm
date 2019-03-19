@@ -8,10 +8,7 @@ class ChickenRolade: public SideProduct {
     private:
     
     public:
-        ChickenRolade() : SideProduct("Chicken Rolade", 1, 10){}
-        string getName_SProduct(); // return name
-        int getType_SProduct(); //return typeEgg;        
-        int getPrice_SProduct(); //return price;        
+        ChickenRolade() : SideProduct("Chicken Rolade", 13, 10){}      
 };
 
 

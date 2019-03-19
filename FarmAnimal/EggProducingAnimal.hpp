@@ -1,16 +1,13 @@
 #ifndef _EGG_PRODUCING_ANIMAL_HPP
 #define _EGG_PRODUCING_ANIMAL_HPP
 #include <string>
-#include "FarmAnimal.hpp"
+#include "../FarmAnimal.hpp"
 using namespace std;
 
 class EggProducingAnimal: public FarmAnimal{
-	private:
-		const int typeAnimal = 1;
-        
 	public:
-		virtual void addEgg() = 0; // menambah telur ke tas player
-		int getTypeAnimal();
+		EggProducingAnimal(int _x, int _y, string _voice, int _typeAnimal):FarmAnimal(_x, _y, _voice, _typeAnimal){}
+		void move(char c);
 };
 
 #endif

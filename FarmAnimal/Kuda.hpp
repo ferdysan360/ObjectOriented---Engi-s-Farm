@@ -4,13 +4,13 @@
 #include "MeatProducingAnimal.hpp"
 using namespace std;
 
-class Kuda: public EggProducingAnimal, public MeatProducingAnimal {
-    private:
-        const string voice = "hikhik-hikhik";
+class Kuda: public MilkProducingAnimal, public MeatProducingAnimal {
     public:
-        Kuda(); // ctor
+        Kuda(int _x, int _y): MeatProducingAnimal(_x, _y, "Hikhik-hikhik", 5), MilkProducingAnimal(_x, _y, "Hikhik-hikhik", 5){} // ctor
         void sound(); //cout voice
-};
+        void extract();
+        
+}; 
 
 
 #endif

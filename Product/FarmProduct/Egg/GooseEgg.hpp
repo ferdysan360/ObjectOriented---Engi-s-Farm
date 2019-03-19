@@ -9,9 +9,6 @@ class GooseEgg : public Egg {
 
   public:
     GooseEgg(): Egg("Goose Egg",3, 25){}
-    string getName_FProduct(); // return name
-    int getType_FProduct(); //return typeEgg;        
-    int getPrice_FProduct(); //return price;
 };
 
 #endif
