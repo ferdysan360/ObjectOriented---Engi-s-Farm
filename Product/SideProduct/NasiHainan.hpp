@@ -1,6 +1,6 @@
 #ifndef _NASI_HAINAN_HPP
 #define _NASI_HAINAN_HPP
-#include "SideProduct.hpp"
+#include "../SideProduct.hpp"
 #include <string>
 using namespace std;
 

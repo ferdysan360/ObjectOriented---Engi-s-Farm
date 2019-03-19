@@ -1,6 +1,6 @@
 #ifndef _COW_MILK_HPP
 #define _COW_MILK_HPP
-#include "Milk.hpp"
+#include "../Milk.hpp"
 #include <string>
 using namespace std;
 

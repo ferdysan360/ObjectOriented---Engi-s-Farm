@@ -1,6 +1,6 @@
 #ifndef _MEAT_HPP
 #define _MEAT_HPP
-#include "FarmProduct.hpp"
+#include "../FarmProduct.hpp"
 using namespace std;
 
 class Meat: public FarmProduct {

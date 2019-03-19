@@ -1,6 +1,6 @@
 #ifndef _SIDE_PRODUCT_HPP
 #define _SIDE_PRODUCT_HPP
-#include "Product.hpp"
+#include "../Product.hpp"
 using namespace std;
 
 class SideProduct: public Product {

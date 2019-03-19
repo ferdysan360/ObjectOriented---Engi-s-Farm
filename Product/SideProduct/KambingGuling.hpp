@@ -1,6 +1,6 @@
 #ifndef _KAMBING_GULING_HPP
 #define _KAMBING_GULING_HPP
-#include "SideProduct.hpp"
+#include "../SideProduct.hpp"
 #include <string>
 using namespace std;
 

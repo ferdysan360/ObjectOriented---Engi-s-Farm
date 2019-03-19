@@ -1,6 +1,6 @@
 #ifndef _DUCK_MEAT_HPP
 #define _DUCK_MEAT_HPP
-#include "Meat.hpp"
+#include "../Meat.hpp"
 #include <string>
 using namespace std;
 
