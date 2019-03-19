@@ -6,10 +6,9 @@ using namespace std;
 
 class ChickenRolade: public SideProduct {
     private:
-        const string name = "Chicken Rolade";
-        const int type_sproduct = 1;
-        const int price = 10; 
+    
     public:
+        ChickenRolade() : SideProduct("Chicken Rolade", 1, 10){}
         string getName_SProduct(); // return name
         int getType_SProduct(); //return typeEgg;        
         int getPrice_Sproduct(); //return price;        

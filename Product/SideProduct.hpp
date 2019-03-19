@@ -5,8 +5,11 @@ using namespace std;
 
 class SideProduct: public Product {
     private:
-        
+        const string name;
+        const int type_sproduct;
+        const int price; 
     public:
+        SideProduct(string _name, int _type_sproduct, int _price) : name(_name), type_sproduct(_type_sproduct), price(_price){}
         //Tipe 1 + 4 = ChickenRolade
         //Tipe 1 + 5 = NasiHainan
         //Tipe 1 + 6 = AngsaGeprek

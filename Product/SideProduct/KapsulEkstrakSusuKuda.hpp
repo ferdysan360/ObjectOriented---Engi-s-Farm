@@ -6,10 +6,9 @@ using namespace std;
 
 class KapsulEkstrakSusuKuda: public SideProduct {
     private:
-        const string name = "Kapsul Ekstrak Susu Kuda";
-        const int type_sproduct = 9;
-        const int price = 8; 
+        
     public:
+        KapsulEkstrakSusuKuda() : SideProduct("Kapsul Ekstrak Susu Kuda", 9, 8){}
         string getName_SProduct(); // return name
         int getType_SProduct(); //return typeSProduct;        
         int getPrice_Sproduct(); //return price;        
