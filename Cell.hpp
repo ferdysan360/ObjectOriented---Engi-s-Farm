@@ -8,12 +8,8 @@
 class Cell {
     public:
         Cell();
-        virtual int getType() = 0;
-        // type 1 = well
-        // type 2 = mixer
-        // type 3 = truck
-        // type 4 = coop
-        // type 5 = grassland
-        // type 6 = barn
+        virtual int getTypeCell() = 0;
+        // type 1 = facility
+        // type 2 = land
 };
 #endif

@@ -11,7 +11,7 @@ class ChickenEgg: public Egg {
         const int price = 28000; 
     public:
         string getName(); // return name
-        int getType(); //return typeEgg;        
+        int getTypeProduct(); //return typeEgg;        
         int getPrice(); //return price;        
 };
 

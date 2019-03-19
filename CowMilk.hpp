@@ -8,10 +8,10 @@ class CowMilk : public Milk {
     private:
         const string name = "Cow Milk";
         const int type = 10;
-        const int price = 9000; 
+        const int price = 9; 
     public:
         string getName(); // return name
-        int getType(); //return typeMilk; 
+        int getTypeProduct(); //return typeMilk; 
         int getPrice(); //return price;  
 };
 

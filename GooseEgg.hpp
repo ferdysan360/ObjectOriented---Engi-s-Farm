@@ -8,11 +8,11 @@ class GooseEgg : public Egg {
   private:
     const string name = "Goose Egg";
     const int type = 3;
-    const int price = 40000;
+    const int price = 25;
 
   public:
     string getName(); // return name;
-    int getType();    //return typeEgg;
+    int getTypeProduct();    //return typeEgg;
     int getPrice();   //return price;
 };
 

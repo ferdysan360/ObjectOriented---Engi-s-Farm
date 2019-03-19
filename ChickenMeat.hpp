@@ -8,11 +8,11 @@ class ChickenMeat: public Meat {
     private:
         const string name = "Chicken Meat";
         const int type = 4;
-        const int price = 10000;
+        const int price = 28;
 
     public:
         string getName(); // return name;
-        int getType(); //return typeMeat;    
+        int getTypeProduct(); //return typeMeat;    
         int getPrice(); // return price    
 };
 

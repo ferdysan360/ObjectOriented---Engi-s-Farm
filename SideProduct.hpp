@@ -10,7 +10,7 @@ class SideProduct: public Product {
         //Tipe 1 + 4 = ChickenRolade
         //Tipe 1 + 5 = NasiHainan
         //Tipe 1 + 6 = AngsaGeprek
-        //Tipe 1 + 7 = SapiOmellete
+        //Tipe 1 + 7 = SapiOmelete
         //Tipe 1 + 8 = KudaBakarTelur
         //Tipe 1 + 9 = KambingGuling
         //TIpe 1 + 10 = SusuTelurMaduJahe
