@@ -3,7 +3,6 @@
 #ifndef _TRUCK_H
 #define _TRUCK_H
 #include "../Facility.hpp"
-#include "Product.hpp"
 
 class Truck : public Facility{
     private:
