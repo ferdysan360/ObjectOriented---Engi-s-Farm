@@ -15,5 +15,7 @@ class Well : public Facility{
         {
             
         }
+
+        void getWater();
 };
 #endif
