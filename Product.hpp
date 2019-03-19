@@ -3,10 +3,14 @@
 using namespace std;
 
 class Product {
-    private:
-            
+    protected:
+        const string name;
+        const int price;
+
     public:
-        
+        Product(string name, int price): name(name), price(price){}
+
+        int getPrice();
 };
 
 
