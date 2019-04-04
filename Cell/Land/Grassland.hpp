@@ -9,9 +9,6 @@ class Grassland: public Land{
         
     public:
         //ctor
-        Grassland(bool occupied): Land('g',6)
-        {
-            occupied = occupied;
-        }
+        Grassland(bool occupied);
 };
 #endif

@@ -3,10 +3,8 @@
 #include "EggProducingAnimal.hpp"
 #include "MeatProducingAnimal.hpp"
 #include "../FarmAnimal.hpp"
-#include "../List.hpp"
-using namespace std;
 
-class Angsa : public EggProducingAnimal, public MeatProducingAnimal
+class Angsa : public EggProducingAnimal
 {
   public:
     Angsa(int _x, int _y); // ctor

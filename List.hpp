@@ -46,6 +46,8 @@ class List {
 
         void add(T element);
 
+        void removeIdx(int index);
+
         void remove(T element);
 
         T get(int index);
@@ -64,7 +66,7 @@ List<T>::List(){
 }
 
 template <class T> //find for generic
-int List<T>::find(T p){
+inline int List<T>::find(T p){
     int idx;
     typename vector<T>::iterator itr;
 
@@ -82,7 +84,7 @@ int List<T>::find(T p){
 }
 
 template <> //find for product 
-int List<Product*>::find(Product* p){
+inline int List<Product*>::find(Product* p){
     int idx;
     typename vector<Product*>::iterator itr;
     
@@ -98,7 +100,7 @@ int List<Product*>::find(Product* p){
 }
 
 template <> //find for farm animal
-int List<FarmAnimal*>::find(FarmAnimal* p){
+inline int List<FarmAnimal*>::find(FarmAnimal* p){
     int idx;
     typename vector<FarmAnimal*>::iterator itr;
     
@@ -122,6 +124,18 @@ template <class T>
 void List<T>::add(T element){
     data.push_back(element);
     neff++;
+}
+
+template <class T>
+void List<T>::removeIdx(int index){
+    if(index < data.size()){
+        typename vector<T>::iterator itr = data.begin() + index;
+        data.erase(itr);
+        neff--;
+    }
+    else{
+        std::cout << "Index not valid!" << endl;
+    }
 }
 
 template <class T>

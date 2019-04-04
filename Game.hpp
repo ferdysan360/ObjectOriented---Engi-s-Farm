@@ -20,8 +20,6 @@
 #include "FarmAnimal/Kuda.hpp"
 #include "FarmAnimal/Sapi.hpp"
 
-
-#include "List.hpp"
 #include <fstream>
 
 class Game {
@@ -45,6 +43,7 @@ class Game {
         //4. inisialisasi tas player
         //5. inisialisasi uang dan waktu
         //6. 
+        
         void initializeGame();
 
         //membuat render UI
@@ -55,9 +54,15 @@ class Game {
 
         void placeAnimal();
 
+        void placePlayer();
+
         void moveAnimal();
 
         void readMap(string namaFile);
+
+        void liveAnimal();
+
+        void clearDeadAnimal();
 };
 
 #endif

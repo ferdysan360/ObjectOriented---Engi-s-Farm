@@ -9,13 +9,10 @@ class Renderable {
 		char renderChar;
 	public:
 		Renderable();
-		Renderable(char renderChar) {
-			this->renderChar = renderChar;
-		}
 
-		char getRender() {
-			return renderChar;
-		}
+		Renderable(char renderChar);
+
+		char getRender();
 };
 
 #endif

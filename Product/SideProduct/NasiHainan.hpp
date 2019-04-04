@@ -8,7 +8,7 @@ class NasiHainan: public SideProduct {
     private:
         
     public:
-        NasiHainan() : SideProduct("Nasi Hainan", 14, 20){}       
+        NasiHainan();
 };
 
 

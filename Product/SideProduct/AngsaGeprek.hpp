@@ -8,7 +8,7 @@ class AngsaGeprek: public SideProduct {
     private:
 
     public:
-        AngsaGeprek() : SideProduct("Angsa Geprek", 15, 12){}       
+        AngsaGeprek();      
 };
 
 

@@ -1,11 +1,13 @@
 #include "Kambing.hpp"
 #include <iostream>
-using namespace std;
 
-Kambing::Kambing(int _x, int _y): MeatProducingAnimal(_x, _y, "Mbek", 4), MilkProducingAnimal(_x, _y, "Mbek", 4){} // ctor
-
+Kambing::Kambing(int _x, int _y): FarmAnimal(_x, _y, "Mbek", 4) { // ctor
+    renderChar='k';
+    hungry = 8;
+    timeLeft = hungry + 5;
+}
 void Kambing::sound(){
-    cout << MilkProducingAnimal::voice << endl;
+    std::cout << MilkProducingAnimal::voice << endl;
 }
 
 Product* Kambing::extract(){

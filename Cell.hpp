@@ -23,26 +23,21 @@ class Cell : public Renderable {
     protected:
         const int typeCell;
         bool occupied;
+        bool hasGrass;
 
     public:
-        Cell(char renderChar, int typeCell, bool isOccupied) : typeCell(typeCell), Renderable(renderChar), occupied(isOccupied) {
-            
-        }
+        Cell();
 
-        //mengembalikan char sesuai status dari cell, apakah occupied ataukah facility dll
-        char getRenderable();
+        Cell(char renderChar, int typeCell, bool isOccupied);
 
-        bool isOccupied() {
-            return occupied;
-        }
+        bool isOccupied();
 
-        void setOccupied(bool newStat) {
-            occupied=newStat;
-        }
-        // type 1 = facility
-        // type 2 = land
-        int getTypeCell() {
-            return typeCell;
-        }
+        void setOccupied(bool newStat);
+        
+        int getTypeCell();
+
+        bool isHasGrass();
+
+        void setHasGrass(bool newStat);
 };
 #endif

@@ -8,7 +8,7 @@ class KapsulEkstrakSusuKuda: public SideProduct {
     private:
         
     public:
-        KapsulEkstrakSusuKuda() : SideProduct("Kapsul Ekstrak Susu Kuda", 20, 8){}   
+        KapsulEkstrakSusuKuda();
 };
 
 

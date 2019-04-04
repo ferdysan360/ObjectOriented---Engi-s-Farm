@@ -7,7 +7,7 @@ class Egg: public FarmProduct {
     private:
     
     public:
-        Egg(string _name, int _type_product, int _price) : FarmProduct(_name, _type_product, _price){}
+        Egg(string _name, int _type_product, int _price);
 };
 
 

@@ -1,23 +1,17 @@
 #include "Angsa.hpp"
 #include <iostream>
-using namespace std;
 
-Angsa::Angsa(int _x, int _y): EggProducingAnimal(_x, _y, "Ngok ngok ngok", 3), MeatProducingAnimal(_x, _y, "Ngok ngok ngok", 3){} // ctor
+Angsa::Angsa(int _x, int _y): FarmAnimal(_x, _y, "Ngok ngok ngok", 1)/*, MeatProducingAnimal(_x, _y, "Ngok ngok ngok", 1) */ {
+    // x=_x;
+    renderChar='a';
+    hungry = 5;
+    timeLeft = hungry+5;
+}
 
 void Angsa::sound(){
-    cout << EggProducingAnimal::voice << endl;
+    std::cout << EggProducingAnimal::voice << endl;
 }
 
-Product* Angsa::extract(){
+Product* Angsa::extract() {
     return new GooseEgg();
-}
-
-
-int main(){
-    List<Product *> bag;
-    Angsa A();
-    
-    GooseEgg e();
-    bag.find(new Angsa());
-    return 0;
 }

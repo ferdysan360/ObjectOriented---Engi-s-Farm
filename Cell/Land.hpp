@@ -9,14 +9,8 @@ class Land : public Cell{
         
         
     public:
-        Land(char renderChar, int type): Cell(renderChar,type,false)
-        {
-            // cout << getRenderable();
-        }
+        Land(char renderChar, int type);
 
-        int getTypeCell()
-        {
-            return 2;
-        }
+        int getTypeCell();
 };
 #endif

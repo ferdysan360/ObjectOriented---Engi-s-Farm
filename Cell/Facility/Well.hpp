@@ -11,14 +11,8 @@ class Well : public Facility{
     private:
         
     public:
-        Well() : Facility('W',3)
-        {
-            
-        }
+        Well();
 
-        void getWater(int* waterBag)
-        {
-            *waterBag = MAX_WATER;
-        }
+        void getWater(int* waterBag);
 };
 #endif

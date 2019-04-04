@@ -8,7 +8,7 @@ class GooseMeat: public Meat {
     private:
 
     public:
-        GooseMeat(): Meat("Goose Meat", 6, 20){}
+        GooseMeat();
 };
 
 

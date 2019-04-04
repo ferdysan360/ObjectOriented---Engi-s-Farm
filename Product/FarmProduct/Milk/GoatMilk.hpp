@@ -7,7 +7,7 @@ using namespace std;
 class GoatMilk: public Milk {
     private:
     public:
-        GoatMilk(): Milk("Goat Milk", 12, 11){}
+        GoatMilk();
 };
 
 

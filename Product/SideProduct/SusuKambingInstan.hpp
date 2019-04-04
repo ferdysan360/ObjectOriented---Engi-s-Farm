@@ -8,7 +8,7 @@ class SusuKambingInstan: public SideProduct {
     private:
         
     public:
-        SusuKambingInstan() : SideProduct("Susu Kambing Instan", 21, 8){}       
+        SusuKambingInstan();
 };
 
 

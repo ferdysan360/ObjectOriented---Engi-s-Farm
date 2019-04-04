@@ -1,11 +1,14 @@
 #include "Kuda.hpp"
 #include <iostream>
-using namespace std;
 
-Kuda::Kuda(int _x, int _y): MeatProducingAnimal(_x, _y, "Hikhik-hikhik", 5), MilkProducingAnimal(_x, _y, "Hikhik-hikhik", 5){} // ctor
+Kuda::Kuda(int _x, int _y): FarmAnimal(_x, _y, "Hikhik-hikhik", 5) { // ctor
+    renderChar='h';
+    hungry = 9;
+    timeLeft = hungry + 5;
+}
 
 void Kuda::sound(){
-    cout << MilkProducingAnimal::voice << endl;
+    std::cout << MilkProducingAnimal::voice << endl;
 }
 
 Product* Kuda::extract(){

@@ -6,7 +6,7 @@ using namespace std;
 class SideProduct: public Product {
         
     public:
-        SideProduct(string _name, int _type_product, int _price) : Product(_name, _type_product,_price){}
+        SideProduct(string _name, int _type_product, int _price);
         //Tipe 1 + 4 = ChickenRolade
         //Tipe 1 + 5 = NasiHainan
         //Tipe 1 + 6 = AngsaGeprek

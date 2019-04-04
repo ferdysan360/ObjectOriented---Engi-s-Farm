@@ -8,7 +8,7 @@ class ChickenRolade: public SideProduct {
     private:
     
     public:
-        ChickenRolade() : SideProduct("Chicken Rolade", 13, 10){}      
+        ChickenRolade();   
 };
 
 

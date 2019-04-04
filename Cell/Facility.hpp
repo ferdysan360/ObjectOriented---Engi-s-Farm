@@ -9,11 +9,8 @@ class Facility : public Cell{
     protected:
         
     public:
-        Facility(char renderChar, int type) : Cell(renderChar, type, true){}
+        Facility(char renderChar, int type);
 
-        int getTypeCell()
-        {
-            return 1;
-        }
+        int getTypeCell();
 };
 #endif

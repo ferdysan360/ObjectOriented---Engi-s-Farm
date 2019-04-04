@@ -8,7 +8,7 @@ class KambingGuling: public SideProduct {
     private:
         
     public:
-        KambingGuling() : SideProduct("Kambing Guling", 18, 18){}       
+        KambingGuling();     
 };
 
 

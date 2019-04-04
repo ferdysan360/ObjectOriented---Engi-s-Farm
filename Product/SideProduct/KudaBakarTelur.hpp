@@ -8,7 +8,7 @@ class KudaBakarTelur: public SideProduct {
     private:
 
     public:
-        KudaBakarTelur() : SideProduct("Kuda Bakar Telur", 17, 25){}       
+        KudaBakarTelur();       
 };
 
 

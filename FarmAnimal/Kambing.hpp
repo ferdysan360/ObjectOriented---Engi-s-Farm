@@ -2,12 +2,12 @@
 #define _KAMBING_HPP
 #include "MilkProducingAnimal.hpp"
 #include "MeatProducingAnimal.hpp"
-using namespace std;
+#include "../FarmAnimal.hpp"
 
 class Kambing : public MeatProducingAnimal, public MilkProducingAnimal
 {
   public:
-    Kambing(int _x, int _y): MeatProducingAnimal(_x, _y, "Mbek", 4), MilkProducingAnimal(_x, _y, "Mbek", 4){} // ctor
+    Kambing(int _x, int _y);
     void sound(); // cout voice
     Product* extract(); //ngeesktrak cuy ke tas pemain
     //void move(); 

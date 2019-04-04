@@ -3,6 +3,16 @@
 #ifndef _TRUCK_H
 #define _TRUCK_H
 #include "../Facility.hpp"
+#include "../../List.hpp"
+#include "../../Product/SideProduct/AngsaGeprek.hpp"
+#include "../../Product/SideProduct/ChickenRolade.hpp"
+#include "../../Product/SideProduct/KambingGuling.hpp"
+#include "../../Product/SideProduct/KapsulEkstrakSusuKuda.hpp"
+#include "../../Product/SideProduct/KudaBakarTelur.hpp"
+#include "../../Product/SideProduct/NasiHainan.hpp"
+#include "../../Product/SideProduct/SapiOmelete.hpp"
+#include "../../Product/SideProduct/SusuKambingInstan.hpp"
+#include "../../Product/SideProduct/SusuTelurMaduJahe.hpp"
 #include <vector>
 
 class Truck : public Facility{
@@ -10,23 +20,10 @@ class Truck : public Facility{
         bool truck_status;
 
     public:
-        Truck() : Facility('T',2)
-        {
-            truck_status = true;
-        }
-        bool checkStatus() //Mengecek status ketersediaan truck
-        {
-            return truck_status;
-        }
+        Truck();
+        bool checkStatus(); //Mengecek status ketersediaan truck
+        void setStatus(bool newStatus); //set status ketersediaan truck
+        void sellProduct(List<Product*>* bag,int* gameMoney); //mendapat price dari setiap item di bag lalu menambah uang game sebesar itu
 
-        void setStatus(bool newStatus) //set status ketersediaan truck
-        {
-            truck_status = newStatus;
-        }
-
-        void sellProduct(vector<Product>* bag,int* gameMoney) //mendapat price dari setiap item di bag lalu menambah uang game sebesar itu
-        {
-            
-        }
 };
 #endif

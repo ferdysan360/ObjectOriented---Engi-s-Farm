@@ -35,9 +35,9 @@ class Sapi : public FarmAnimal
     }
 };
 
-int main()
-{
-  FarmAnimal A;
-  A = new Sapi();
-  return 0;
-}
+// int main()
+// {
+//   FarmAnimal A;
+//   A = new Sapi();
+//   return 0;
+// }

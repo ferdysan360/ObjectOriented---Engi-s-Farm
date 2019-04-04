@@ -8,7 +8,7 @@ class GoatMeat : public Meat {
   private:
 
   public:
-    GoatMeat(): Meat("Goat", 9, 40){}
+    GoatMeat();
 };
 
 #endif

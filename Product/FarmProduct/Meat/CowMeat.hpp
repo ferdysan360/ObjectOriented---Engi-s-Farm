@@ -6,9 +6,9 @@ using namespace std;
 
 class CowMeat : public Meat {
   private:
-  
+
   public:
-    CowMeat(): Meat("Cow Meat", 7, 36){}
+    CowMeat();
 };
 
 #endif

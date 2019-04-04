@@ -8,7 +8,7 @@ class CowMilk : public Milk {
     private:
 
     public:
-        CowMilk(): Milk("Cow Milk", 10, 9){}
+        CowMilk();
 };
 
 #endif

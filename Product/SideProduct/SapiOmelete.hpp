@@ -8,7 +8,7 @@ class SapiOmelete: public SideProduct {
     private:
         
     public:
-        SapiOmelete() : SideProduct("Sapi Omelete", 16, 20){}
+        SapiOmelete();
 };
 
 

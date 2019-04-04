@@ -1,11 +1,13 @@
 #include "Ayam.hpp"
 #include <iostream>
-using namespace std;
 
-Ayam::Ayam(int _x, int _y): EggProducingAnimal(_x, _y, "Petook", 3), MeatProducingAnimal(_x, _y, "Petook", 3){} // ctor
-
+Ayam::Ayam(int _x, int _y): FarmAnimal(_x, _y, "Petook", 2) /*, MeatProducingAnimal(_x, _y, "Petook", 2)*/ { // ctor
+    renderChar='c';
+    hungry = 6;
+    timeLeft = hungry + 5;
+}
 void Ayam::sound(){
-    cout << EggProducingAnimal::voice << endl;
+    std::cout << EggProducingAnimal::voice << endl;
 }
 
 Product* Ayam::extract(){

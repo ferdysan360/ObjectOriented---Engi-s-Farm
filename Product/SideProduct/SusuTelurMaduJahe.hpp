@@ -8,7 +8,7 @@ class SusuTelurMaduJahe: public SideProduct {
     private:
         
     public:
-        SusuTelurMaduJahe() : SideProduct("Susu Telur Madu Jahe", 19, 5){}     
+        SusuTelurMaduJahe();
 };
 
 

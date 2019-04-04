@@ -14,9 +14,7 @@ class Product {
         Product(string _name, int _type_product, int _price);
         
         string getName();
-        int getTypeProduct() {
-            return type_product;
-        }
+        int getTypeProduct();
         int getPrice();
 };
 
