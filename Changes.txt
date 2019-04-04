@@ -1,0 +1,6 @@
+Changes in OOP Project Engi's Farm:
+1. Attribute Bag Player = Product* -> List<T>
+2. Constructor Egg, Milk, dan Meat producing animal, initialization list dipindah ke fie .cpp nya
+3. Constructor FarmAnimal, initialization list dipindah ke fie .cpp nya
+4. Buat readMap
+5. add getTypeLand pada class land

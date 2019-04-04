@@ -1,6 +1,9 @@
 #ifndef _FARM_ANIMAL_HPP
 #define _FARM_ANIMAL_HPP
 #include <vector>
+
+#include "Cell.hpp"
+#include "Renderable.hpp"
 //egg
 #include "Product/FarmProduct/Egg/ChickenEgg.hpp"
 #include "Product/FarmProduct/Egg/DuckEgg.hpp"
@@ -16,10 +19,10 @@
 #include "Product/FarmProduct/Milk/CowMilk.hpp"
 #include "Product/FarmProduct/Milk/GoatMilk.hpp"
 #include "Product/FarmProduct/Milk/HorseMilk.hpp"
-
+// #include "List.hpp"
 #include <string>
 
-class FarmAnimal{
+class FarmAnimal : public Renderable {
 	protected:
 		static int n_FarmAnimal;
 		const int typeAnimal;
@@ -27,27 +30,27 @@ class FarmAnimal{
 		bool hasProduct;
 		int x;
 		int y;
-		string voice;
+		string voice = "";
 	public:
 		//n_FarmAnimal++; hungry = 5; hasProduct = false
-		FarmAnimal(int _x, int _y, string _voice, int _typeAnimal): typeAnimal(_typeAnimal){}
-		FarmAnimal(const FarmAnimal& F);
+		FarmAnimal();
+		FarmAnimal(int _x, int _y, string _voice, int _typeAnimal);
 		~FarmAnimal(); //n_FarmAnimal--;
-		bool operator==(const FarmAnimal& F);
 		virtual void sound() = 0;
 		
 		//getter
-		virtual int getTypeAnimal();
-		bool getHasProduct();
-		int getHungry();
-		int getX();
-		int getY();
+		virtual int getTypeAnimal() const;
+		bool getHasProduct() const;
+		int getHungry() const;
+		int getX() const;
+		int getY() const;
+		string getVoice() const;
 
 		//setter
-		void setHasProduct();
-		void setHungry();
-		void setX();
-		void setY();
+		void setHasProduct(bool _hasProduct);
+		void setHungry(int _hungry);
+		void setX(int _x);
+		void setY(int _y);
 
 		// jika dia lapar, kalau ada makanan maka dia akan makan, kalau tidak, maka dia akan move lalu cek apakah bisa makan
 		// kalau ga lapar, maka dia akan move dan mengurangi tingkat kelaparan sebanyak 1
@@ -55,8 +58,8 @@ class FarmAnimal{
 
 		void eat(); //makan rumput
 		
-		virtual void move(char c); //didalam masing2 penghasil telur, daging sama susu, beda2 implementasinya
-		virtual void extract(std::vector<Product>* bag) = 0; //bool hasProduct jadi false, push_back product kedalam bag player
+		virtual void move(Cell* map[10][11]); //didalam masing2 penghasil telur, daging sama susu, beda2 implementasinya
+		virtual Product* extract() = 0; //bool hasProduct jadi false, push_back product kedalam bag player
 };
 
 #endif

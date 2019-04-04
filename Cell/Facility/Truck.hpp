@@ -10,7 +10,7 @@ class Truck : public Facility{
         bool truck_status;
 
     public:
-        Truck() : Facility(3)
+        Truck() : Facility('T',2)
         {
             truck_status = true;
         }

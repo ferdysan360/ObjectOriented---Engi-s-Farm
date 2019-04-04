@@ -6,9 +6,9 @@ using namespace std;
 
 class Sapi : public MeatProducingAnimal, public MilkProducingAnimal {
     public:
-        Sapi(int _x, int _y): MeatProducingAnimal(_x, _y, "Moo", 6), MilkProducingAnimal(_x, _y, "Moo", 6){} // ctor
+        Sapi(int _x, int _y);
         void sound(); // cout voice
-        void extract();
+        Product* extract();
 };
 
 #endif

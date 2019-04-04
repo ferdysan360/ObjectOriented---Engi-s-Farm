@@ -9,9 +9,9 @@ class Coop: public Land{
         
     public:
         //ctor
-        Coop(): Land(2)
+        Coop(bool occupied): Land('c',5)
         {
-            isOccupied = false;
+            occupied = occupied;
         }
 };
 #endif

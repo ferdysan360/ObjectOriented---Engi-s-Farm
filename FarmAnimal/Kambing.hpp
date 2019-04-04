@@ -9,7 +9,7 @@ class Kambing : public MeatProducingAnimal, public MilkProducingAnimal
   public:
     Kambing(int _x, int _y): MeatProducingAnimal(_x, _y, "Mbek", 4), MilkProducingAnimal(_x, _y, "Mbek", 4){} // ctor
     void sound(); // cout voice
-    void extract(); //ngeesktrak cuy ke tas pemain
+    Product* extract(); //ngeesktrak cuy ke tas pemain
     //void move(); 
 };
 

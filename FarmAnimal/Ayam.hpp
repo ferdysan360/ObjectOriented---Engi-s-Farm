@@ -8,7 +8,7 @@ class Ayam: public EggProducingAnimal, public MeatProducingAnimal {
     public:
         Ayam(int _x, int _y): EggProducingAnimal(_x, _y, "Petook", 1), MeatProducingAnimal(_x, _y, "Petook", 1){} // ctor
         void sound(); //cout voice
-        void extract(); // menambah telur ayam ke tas play
+        Product* extract(); // menambah telur ayam ke tas play
 };
 
 

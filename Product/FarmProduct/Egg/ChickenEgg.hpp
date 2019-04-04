@@ -8,7 +8,7 @@ class ChickenEgg: public Egg {
     private:
 
     public:
-        ChickenEgg(): Egg("Chicken Egg",1, 28){}
+        ChickenEgg();
 };
 
 

@@ -4,9 +4,9 @@
 #include "../FarmAnimal.hpp"
 using namespace std;
 
-class EggProducingAnimal: public FarmAnimal{
+class EggProducingAnimal: public virtual FarmAnimal{
 	public:
-		EggProducingAnimal(int _x, int _y, string _voice, int _typeAnimal):FarmAnimal(_x, _y, _voice, _typeAnimal){}
+		EggProducingAnimal(int _x, int _y, string _voice, int _typeAnimal);
 		void move(char c);
 };
 

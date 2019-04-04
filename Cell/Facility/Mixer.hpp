@@ -9,7 +9,7 @@ class Mixer: public Facility{
         
     public:
         //ctor
-        Mixer(): Facility(2)
+        Mixer(): Facility('M',1)
         {
 
         }

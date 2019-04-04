@@ -7,10 +7,9 @@
 
 class Facility : public Cell{
     protected:
-        const int typeFacility;
         
     public:
-        Facility(int type): typeFacility(type){}
+        Facility(char renderChar, int type) : Cell(renderChar, type, true){}
 
         int getTypeCell()
         {

@@ -10,11 +10,13 @@ class Product {
         const int price;
 
     public:
-        bool operator==(const Product& P);
-        Product(string _name, int _type_product, int _price): name(_name), type_product(_type_product) ,price(_price){}
-        Product(const Product& P);
+        
+        Product(string _name, int _type_product, int _price);
+        
         string getName();
-        int getTypeProduct();
+        int getTypeProduct() {
+            return type_product;
+        }
         int getPrice();
 };
 

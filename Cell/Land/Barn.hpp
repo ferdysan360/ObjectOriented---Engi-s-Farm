@@ -9,9 +9,9 @@ class Barn: public Land{
         
     public:
         //ctor
-        Barn(): Land(1)
+        Barn(bool occupied): Land('b',4)
         {
-            isOccupied = false;
+            occupied = occupied;
         }
 };
 #endif

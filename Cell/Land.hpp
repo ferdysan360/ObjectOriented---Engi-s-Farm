@@ -6,13 +6,12 @@
 
 class Land : public Cell{
     protected:
-        const int typeLand;
-        bool isOccupied;
+        
         
     public:
-        Land(int type): typeLand(type)
+        Land(char renderChar, int type): Cell(renderChar,type,false)
         {
-
+            // cout << getRenderable();
         }
 
         int getTypeCell()

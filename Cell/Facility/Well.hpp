@@ -11,7 +11,7 @@ class Well : public Facility{
     private:
         
     public:
-        Well() : Facility(1)
+        Well() : Facility('W',3)
         {
             
         }
