@@ -56,13 +56,25 @@ class Game {
 
         void placePlayer();
 
+        void movePlayer(int direction);
+
         void moveAnimal();
 
         void readMap(string namaFile);
 
         void liveAnimal();
-
+    
         void clearDeadAnimal();
+
+        void playerTalk();
+
+        void playerGrow();
+        
+        void playerKill();
+
+        void playerInteract();
+
+        Player getPlayer();
 };
 
 #endif

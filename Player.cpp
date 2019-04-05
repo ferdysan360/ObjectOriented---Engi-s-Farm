@@ -1,6 +1,7 @@
 #include "Player.hpp"
 
 Player::Player() {
+    
 }
 
 
@@ -9,6 +10,8 @@ Player::Player(int x, int y) {                   // ctor player, inisialisasi wa
     this->y=y;
     renderChar = '^';
     direction = 0;
+    Bag.add(new ChickenEgg());
+    Bag.add(new ChickenMeat());
 }
 
 // ctor user-defined player, inisialisasi
@@ -19,8 +22,16 @@ Player::Player(int, Product*) {
 // find tile apa yang ada disekitar
 // return 1 jika facility
 // return 2 jika land
-int Player::find(int x, int y) {
-    
+int Player::find(int x, int y, List<FarmAnimal*> listOfAnimal) {
+    int xAnimal, yAnimal;
+    for (int i=0; i<listOfAnimal.getNeff(); i++) {
+        xAnimal = listOfAnimal.get(i)->getX();
+        yAnimal = listOfAnimal.get(i)->getY();
+        if (x==xAnimal && y==yAnimal) {
+            return i;
+        }
+    }
+    return -1;
 }
 
 int Player::getMoney() {
@@ -40,12 +51,41 @@ void Player::setWater(int water) {
 }
 
 // Berbicara kepada hewan
-void Player::Talk() {
-    
+void Player::Talk(List<FarmAnimal*> listOfAnimal) {
+    int targetX, targetY, typeCell, i1, i2;
+    targetX = x;
+    targetY = y;
+
+    //atas
+    if (direction==0) {
+        targetY--;
+    } 
+    //kanan
+    else if (direction == 1) {
+        targetX++;
+    }
+    //bawah
+    else if (direction == 2) {
+        targetY++;
+    }
+    //kiri
+    else {
+        targetX--;
+    }
+    // ada hewan
+    // cout << "Target: " << x << " " << y << endl;
+    int idxHewan = find(targetX,targetY,listOfAnimal);
+    if (idxHewan!=-1) {
+        listOfAnimal.get(idxHewan)->sound();
+    } else {
+        
+        cout << "Tidak ada animal didepan mata\n";
+        cout << targetX << " " << targetY << endl;
+    }
 }
 
 // Berinteraksi dengan benda di samping player (FarmAnimal & Facility)
-void Player::Interact(List<FarmAnimal*> listOfAnimal, Cell* map[11][10]) {
+void Player::Interact(List<FarmAnimal*> listOfAnimal, Cell* map[10][11], int gameTime) {
     int targetX, targetY, typeCell, i1, i2;
     targetX = x;
     targetY = y;
@@ -87,8 +127,7 @@ void Player::Interact(List<FarmAnimal*> listOfAnimal, Cell* map[11][10]) {
             } else if (typeCell==2) {
                 Truck* pT = static_cast<Truck*>(map[targetY][targetX]);
                 if (pT!=nullptr) {
-                    pT->sellProduct(&Bag, &money);
-                    cout << "Berhasil jualan di truck!" << endl;
+                    pT->sellProduct(&Bag, &money, gameTime);
                 } else {
                     cout << "Cast to truck failed!" << endl;
                 }
@@ -108,29 +147,27 @@ void Player::Interact(List<FarmAnimal*> listOfAnimal, Cell* map[11][10]) {
 } 
 
 // Menggerakkan player
-void Player::Move(int dir, Cell* map[11][10]) {
+void Player::Move(int dir, Cell* map[10][11]) {
     // move
     if (dir == 0 && isPointValid(y-1,x) && !map[y-1][x]->isOccupied()) { // up
-        map[y-1][x]->setOccupied(false);
+        map[y][x]->setOccupied(false);
         y--;
-        map[y-1][x]->setOccupied(true);
+        map[y][x]->setOccupied(true);
     }
     else if (dir == 1 && isPointValid(y,x+1) && !map[y][x+1]->isOccupied()) { // right
-        map[y][x+1]->setOccupied(false);
+        map[y][x]->setOccupied(false);
         x++;
-        map[y][x+1]->setOccupied(true);
+        map[y][x]->setOccupied(true);
     }
     else if (dir == 2 && isPointValid(y+1,x) && !map[y+1][x]->isOccupied()) { // down
-        map[y+1][x]->setOccupied(false);
+        map[y][x]->setOccupied(false);
         y++;
-        map[y+1][x]->setOccupied(true);
+        map[y][x]->setOccupied(true);
     }
-    else { // left
-        if (isPointValid(y,x-1) && !map[y][x-1]->isOccupied()) {
-            map[y][x-1]->setOccupied(false);
-            x--;
-            map[y][x-1]->setOccupied(true);
-        }
+    else if (dir == 3 && isPointValid(y,x-1) && !map[y][x-1]->isOccupied()) { // left
+        map[y][x]->setOccupied(false);
+        x--;
+        map[y][x]->setOccupied(true);
     }
     
     // facing
@@ -138,15 +175,78 @@ void Player::Move(int dir, Cell* map[11][10]) {
 }
 
 // Menyembelih hewan, bila animalnya termasuk yang meatProducer
-void Player::Kill() {
+void Player::Kill(List<FarmAnimal*>* listOfAnimal, Cell* map[10][11]) {
+    int targetX, targetY, typeCell, i1, i2;
+    targetX = x;
+    targetY = y;
+
+    //atas
+    if (direction==0) {
+        targetY--;
+    } 
+    //kanan
+    else if (direction == 1) {
+        targetX++;
+    }
+    //bawah
+    else if (direction == 2) {
+        targetY++;
+    }
+    //kiri
+    else {
+        targetX--;
+    }
     
+    int idxHewan = find(targetX,targetY, *listOfAnimal);
+    if (idxHewan!=-1) {
+        int typeHewan = (*listOfAnimal).get(idxHewan)->getTypeAnimal();
+        
+
+        // delete (*listOfAnimal).get(idxHewan);
+        map[targetY][targetX]->setOccupied(false);
+
+        (*listOfAnimal).removeIdx(idxHewan);
+        
+        //angsa
+        if (typeHewan==1) {
+            Bag.add(new GooseMeat());
+        }//ayam
+        else if (typeHewan==2) {
+            Bag.add(new ChickenMeat());
+        }
+        else if (typeHewan==3) {
+            Bag.add(new DuckMeat());
+        }
+        else if (typeHewan==4) {
+            Bag.add(new GoatMeat());
+        }
+        else if (typeHewan==5) {
+            Bag.add(new HorseMeat());
+        }
+        else if (typeHewan==6) {
+            Bag.add(new CowMeat());
+        }
+        cout << "Berhasil memasukkan product" << endl;
+        
+    } else {
+        cout << "Tidak ada animal didepan mata\n";
+        // cout << targetX << " " << targetY << endl;
+    }
+
 }
 
 // Menyiram land dengan wadah air yang dimiliki
-void Player::Grow(Cell* map[11][10]) {
+void Player::Grow(Cell* map[10][11]) {
     if (!map[y][x]->isHasGrass()) {
-        map[y][x]->setHasGrass(true);
-        cout << "Grass sudah ditumbuhkan" << endl;
+        if (WaterContainer>=10) {
+            map[y][x]->setHasGrass(true);
+            WaterContainer-=10;
+            cout << "Grass sudah ditumbuhkan" << endl;
+        } else {
+            cout << "Water tidak cukup" << endl;
+        }
+        
+        
     } else {
         cout << "Grass masih ada" << endl;
     }

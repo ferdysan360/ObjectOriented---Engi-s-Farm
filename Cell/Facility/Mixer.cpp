@@ -15,6 +15,12 @@ Mixer::Mixer(): Facility('M',1) {
 void Mixer::Mix(int index1, int index2, List<Product*>* bag) {
     int type1 = bag->get(index1)->getTypeProduct();
     int type2 = bag->get(index2)->getTypeProduct();
+    int temp;
+    if (index2>index1) {
+        temp = index1;
+        index1 = index2;
+        index2 = temp;
+    }
     if((type1 == 1 && type2 == 4) || (type1 == 4 && type2 == 1)){
         bag->removeIdx(index1);
         bag->removeIdx(index2);

@@ -15,7 +15,9 @@ Game::Game() {
 };
 
 void Game::initializeGame(){
+    cout << "Game inisialized!" << endl;
     readMap("map.txt");
+    gameTime=0;
     placePlayer();
     placeAnimal();
     P.setMoney(0);
@@ -41,7 +43,8 @@ void Game::renderUI(){
     for (int i=0; i<10; i++) {
         std::cout << "|";
         for(int j=0; j<11; j++) {
-            if (P.getX()==j and P.getY()==i) {
+            if (P.getX()==j && P.getY()==i) {
+                // cout << j << i << endl;
                 std::cout << P.getRender() << "|";
             }
             else if (dummyMap[i][j]=='\0') {
@@ -52,11 +55,17 @@ void Game::renderUI(){
         }
         std::cout << endl;
     }
-
+    
+    // cout << "pas kena player" << P.getX() << P.getY() << endl;
+    // if (map[P.getY()][P.getX()]->isOccupied()) {
+    //     cout << "true" << endl;
+    // } else {
+    //     cout << "false" << endl;
+    // }
     //ngeluarin inventory
     List<Product*> bag = P.getBag();
     for (int i=0; i<bag.getNeff(); i++) {
-        std::cout << i+1 << bag.get(i)->getName() << endl;
+        std::cout << i+1 <<". " << bag.get(i)->getName() << endl;
     }
 
     std::cout << "Money: " << P.getMoney() << endl;
@@ -66,8 +75,14 @@ void Game::renderUI(){
 void Game::forwardTime(){
     gameTime++;
     // moveAnimal();
-    liveAnimal();
-    clearDeadAnimal();
+    if (listOfAnimal.getNeff()==0) {
+        cout << "End Game" << endl;
+        exit;
+    } else {
+        liveAnimal();
+        clearDeadAnimal();
+    }
+    
 };
 
 void Game::readMap(string namaFile) {
@@ -134,24 +149,8 @@ void Game::placeAnimal() {
     int x, y, typeCell;
 
     srand((unsigned)time(0));
-
-    //place manusia
-    while (!berhasil) {
-        x = rand()%11;
-        y = rand()%10;
-        
-        typeCell = map[y][x]->getTypeCell();
-        // cout << typeCell << endl;
-        occupied = map[y][x]->isOccupied();
-        //barn or coop
-        if (!occupied) {
-            // cout << x << " " << y << "angsa" << endl;
-            P = Player(x,y);
-            map[y][x]->setOccupied(true);
-            berhasil = true;
-        }
-    }
     
+    berhasil = false;
     //place angsa
     while (!berhasil) {
         x = rand()%11;
@@ -176,6 +175,7 @@ void Game::placeAnimal() {
         y = rand()%10;
         typeCell = map[y][x]->getTypeCell();
         occupied = map[y][x]->isOccupied();
+        // cout << "ayam :" << x << " " << y;
         //barn or coop
         if ((typeCell==barn || typeCell==coop)&&(!occupied)) {
             listOfAnimal.add(new Ayam(x,y));
@@ -268,7 +268,11 @@ void Game::placePlayer() {
             berhasil = true;
         }
     }
-    cout << "Played player to: " << x << " " << y << endl;
+    cout << "Placed player to: " << x << " " << y << endl;
+}
+
+void Game::movePlayer(int direction) {
+    P.Move(direction, map);
 }
 
 void Game::moveAnimal() {
@@ -282,7 +286,7 @@ void Game::liveAnimal() {
     for (int i=0; i<listOfAnimal.getNeff(); i++) {
         listOfAnimal.get(i)->live(map);
     }
-    cout << "Menuakan Animal Succeed!" << endl;
+    cout << "Menuakan animal succeed!" << endl;
 }
 
 void Game::clearDeadAnimal() {
@@ -290,9 +294,32 @@ void Game::clearDeadAnimal() {
     while (i < listOfAnimal.getNeff()) {
         // cout << i+1 <<listOfAnimal.get(i)->getDead() << endl;
         if (listOfAnimal.get(i)->getDead()) {
+            int x = listOfAnimal.get(i)->getX();
+            int y = listOfAnimal.get(i)->getY();
+            map[y][x]->setOccupied(false);
             listOfAnimal.removeIdx(i);
         } else {
             i++;
         }
     }
+}
+
+void Game::playerTalk() {
+    P.Talk(listOfAnimal);
+}
+
+void Game::playerGrow() {
+    P.Grow(map);
+}
+
+void Game::playerKill() {
+    P.Kill(&listOfAnimal, map);
+}
+
+void Game::playerInteract() {
+    P.Interact(listOfAnimal, map, gameTime);
+}
+
+Player Game::getPlayer() {
+    return P;
 }

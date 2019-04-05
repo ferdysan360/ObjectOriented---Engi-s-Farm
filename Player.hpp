@@ -28,7 +28,7 @@ class Player : public Renderable {
         // find tile apa yang ada disekitar
         // return 1 jika facility
         // return 2 jika land
-        int find(int x, int y);
+        int find(int x, int y, List<FarmAnimal*> listOfAnimal);
 
         int getMoney();
 
@@ -38,15 +38,15 @@ class Player : public Renderable {
 
         void setWater(int water);
 
-        void Talk(); // Berbicara kepada hewan
+        void Talk(List<FarmAnimal*> listOfAnimal); // Berbicara kepada hewan
 
-        void Interact(List<FarmAnimal*> listOfAnimal, Cell* map[11][10]); // Berinteraksi dengan benda di samping player (FarmAnimal & Facility)
+        void Interact(List<FarmAnimal*> listOfAnimal, Cell* map[10][11], int gameTime); // Berinteraksi dengan benda di samping player (FarmAnimal & Facility)
 
-        void Move(int dir, Cell* map[11][10]); // Menggerakkan player
+        void Move(int dir, Cell* map[10][11]); // Menggerakkan player
 
-        void Kill(); // Menyembelih hewan, bila animalnya termasuk yang meatProducer
+        void Kill(List<FarmAnimal*>* listOfAnimal, Cell* map[10][11]); // Menyembelih hewan, bila animalnya termasuk yang meatProducer
 
-        void Grow(Cell* map[11][10]); // Menyiram land dengan wadah air yang dimiliki
+        void Grow(Cell* map[10][11]); // Menyiram land dengan wadah air yang dimiliki
                      // dan menumbuhkan rumput di petak tersebut
         List<Product*> getBag();
         //bagian player yang berfungsi untuk menerima command

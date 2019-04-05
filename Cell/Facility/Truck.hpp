@@ -18,12 +18,13 @@
 class Truck : public Facility{
     private:
         bool truck_status;
+        int lastUsed;
 
     public:
         Truck();
         bool checkStatus(); //Mengecek status ketersediaan truck
         void setStatus(bool newStatus); //set status ketersediaan truck
-        void sellProduct(List<Product*>* bag,int* gameMoney); //mendapat price dari setiap item di bag lalu menambah uang game sebesar itu
+        void sellProduct(List<Product*>* bag,int* gameMoney, int gameTime); //mendapat price dari setiap item di bag lalu menambah uang game sebesar itu
 
 };
 #endif
