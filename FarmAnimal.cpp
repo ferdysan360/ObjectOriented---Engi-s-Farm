@@ -83,13 +83,13 @@ bool FarmAnimal::isAreaValid(int tipeAnimal, int tipeArea) {
 // kalau ga lapar, maka dia akan move dan mengurangi tingkat kelaparan sebanyak 1
 void FarmAnimal::live(Cell* map[10][11]) {
     if (timeLeft > 5) {
-        move(map);
         timeLeft--;
+        move(map);
     }
     else if (timeLeft > 0) {
-        if (map[y][x]->isHasGrass()) {
-            map[y][x]->
-        }
+        eat(map);
+        move(map);
+        timeLeft--;
     }
     else {
         dead = true;
@@ -97,8 +97,11 @@ void FarmAnimal::live(Cell* map[10][11]) {
     }
 }
 
-void FarmAnimal::eat() {
-    
+void FarmAnimal::eat(Cell* map[10][11]) {
+    if (map[y][x]->isHasGrass()) {
+        map[y][x]->setHasGrass(false);
+        timeLeft = hungry+5+1;
+    }
 } //makan rumput
 
 void FarmAnimal::move(Cell* map[10][11]){

@@ -41,10 +41,10 @@ void Game::renderUI(){
     for (int i=0; i<10; i++) {
         std::cout << "|";
         for(int j=0; j<11; j++) {
-            if (P.getX==j and P.getY==i) {
+            if (P.getX()==j and P.getY()==i) {
                 std::cout << P.getRender() << "|";
             }
-            if (dummyMap[i][j]=='\0') {
+            else if (dummyMap[i][j]=='\0') {
                 std::cout << map[i][j]->getRender() << "|";
             } else {
                 std::cout << dummyMap[i][j] << "|";
@@ -65,7 +65,7 @@ void Game::renderUI(){
 
 void Game::forwardTime(){
     gameTime++;
-    moveAnimal();
+    // moveAnimal();
     liveAnimal();
     clearDeadAnimal();
 };
@@ -273,14 +273,14 @@ void Game::placePlayer() {
 
 void Game::moveAnimal() {
     for (int i=0; i<listOfAnimal.getNeff(); i++) {
-        listOfAnimal.get(i)->move(map);
+        listOfAnimal.get(i)->live(map);
     }
     cout << "Move animal Succeed!" << endl;
 };
 
 void Game::liveAnimal() {
     for (int i=0; i<listOfAnimal.getNeff(); i++) {
-        listOfAnimal.get(i)->live();
+        listOfAnimal.get(i)->live(map);
     }
     cout << "Menuakan Animal Succeed!" << endl;
 }
@@ -288,6 +288,7 @@ void Game::liveAnimal() {
 void Game::clearDeadAnimal() {
     int i=0;
     while (i < listOfAnimal.getNeff()) {
+        // cout << i+1 <<listOfAnimal.get(i)->getDead() << endl;
         if (listOfAnimal.get(i)->getDead()) {
             listOfAnimal.removeIdx(i);
         } else {

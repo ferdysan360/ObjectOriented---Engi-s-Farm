@@ -11,7 +11,7 @@ int main() {
 
     cin >> input;
     while (input != "exit") {
-        gameObj.moveAnimal();
+        gameObj.forwardTime();
         gameObj.renderUI();
         cin >> input;
     }

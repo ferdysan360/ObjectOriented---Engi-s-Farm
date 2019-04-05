@@ -129,8 +129,10 @@ void List<T>::add(T element){
 template <class T>
 void List<T>::removeIdx(int index){
     if(index < data.size()){
+        // cout << "Before erase: " << data.size() << endl;
         typename vector<T>::iterator itr = data.begin() + index;
         data.erase(itr);
+        // cout << "After erase: " << data.size() << endl;
         neff--;
     }
     else{

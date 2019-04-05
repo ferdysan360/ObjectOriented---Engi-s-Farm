@@ -7,6 +7,9 @@
 #include "List.hpp"
 #include "Product.hpp"
 #include "FarmAnimal.hpp"
+#include "Cell/Facility/Mixer.hpp"
+#include "Cell/Facility/Truck.hpp"
+#include "Cell/Facility/Well.hpp"
 
 class Player : public Renderable {
     private:
@@ -25,7 +28,7 @@ class Player : public Renderable {
         // find tile apa yang ada disekitar
         // return 1 jika facility
         // return 2 jika land
-        int find();
+        int find(int x, int y);
 
         int getMoney();
 
@@ -37,20 +40,22 @@ class Player : public Renderable {
 
         void Talk(); // Berbicara kepada hewan
 
-        void Interact(); // Berinteraksi dengan benda di samping player (FarmAnimal & Facility)
+        void Interact(List<FarmAnimal*> listOfAnimal, Cell* map[11][10]); // Berinteraksi dengan benda di samping player (FarmAnimal & Facility)
 
-        void Move(); // Menggerakkan player
+        void Move(int dir, Cell* map[11][10]); // Menggerakkan player
 
         void Kill(); // Menyembelih hewan, bila animalnya termasuk yang meatProducer
 
-        void Grow(); // Menyiram land dengan wadah air yang dimiliki
+        void Grow(Cell* map[11][10]); // Menyiram land dengan wadah air yang dimiliki
                      // dan menumbuhkan rumput di petak tersebut
         List<Product*> getBag();
         //bagian player yang berfungsi untuk menerima command
         void ReceiveCommand();
 
+        void changeDirection(int direction);
         int getX();
         int getY();
+        bool isPointValid(int _x, int _y);
 };
 
 #endif

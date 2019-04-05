@@ -1,4 +1,4 @@
-#include "../../FarmAnimal/Angsa.cpp"
+#include "Angsa.cpp"
 #include <bits/stdc++.h>
 
 using namespace std;

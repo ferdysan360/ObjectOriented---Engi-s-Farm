@@ -24,5 +24,27 @@ bool Cell::isHasGrass() {
 }
 
 void Cell::setHasGrass(bool newStat) {
+    //grassland
+    if (getTypeCell()==6) {
+        if (newStat) {
+            renderChar='*';
+        } else {
+            renderChar='-';
+        }
+    //barn
+    } else if (getTypeCell()==4) {
+        if (newStat) {
+            renderChar = '@';
+        } else {
+            renderChar = 'x';
+        }
+    //coop
+    } else if (getTypeCell()==5) {
+        if (newStat) {
+            renderChar = '#';
+        } else {
+            renderChar = 'o';
+        }
+    }
     hasGrass = newStat;
 }

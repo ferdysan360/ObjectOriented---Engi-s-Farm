@@ -59,7 +59,7 @@ class FarmAnimal : public Renderable {
 		// kalau ga lapar, maka dia akan move dan mengurangi tingkat kelaparan sebanyak 1
 		void live(Cell* map[10][11]); 
 
-		void eat(); //makan rumput
+		void eat(Cell* map[10][11]); //makan rumput
 		
 		virtual void move(Cell* map[10][11]); //didalam masing2 penghasil telur, daging sama susu, beda2 implementasinya
 		virtual Product* extract() = 0; //bool hasProduct jadi false, push_back product kedalam bag player

@@ -1,7 +1,7 @@
 #include "Facility.hpp"
 
 Facility::Facility(char renderChar, int type) : Cell(renderChar, type, true) {
-    hasGrass = false;
+    setHasGrass(false);
 }
 
 int Facility::getTypeCell() {
