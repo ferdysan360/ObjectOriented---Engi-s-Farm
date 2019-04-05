@@ -12,5 +12,6 @@ void Kuda::sound(){
 }
 
 Product* Kuda::extract(){
+    hasProduct = false;
     return new HorseMilk();
 }

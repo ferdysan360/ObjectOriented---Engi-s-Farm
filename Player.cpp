@@ -10,8 +10,8 @@ Player::Player(int x, int y) {                   // ctor player, inisialisasi wa
     this->y=y;
     renderChar = '^';
     direction = 0;
-    Bag.add(new ChickenEgg());
-    Bag.add(new ChickenMeat());
+    // Bag.add(new ChickenEgg());
+    // Bag.add(new ChickenMeat());
 }
 
 // ctor user-defined player, inisialisasi
@@ -141,7 +141,13 @@ void Player::Interact(List<FarmAnimal*> listOfAnimal, Cell* map[10][11], int gam
                 }
             }
         } else { //land, berarti interaksi dengan binatang
-
+            int indexAnimal = find(targetX, targetY, listOfAnimal);
+            if (listOfAnimal.get(indexAnimal)->getHasProduct()) {
+                Bag.add(listOfAnimal.get(indexAnimal)->extract());
+            } else {
+                cout << "Animal tidak memiliki produk!" << endl;
+            }
+            
         }
     }
 } 

@@ -11,5 +11,6 @@ void Ayam::sound(){
 }
 
 Product* Ayam::extract(){
+    hasProduct = false;
     return new ChickenEgg();
 }

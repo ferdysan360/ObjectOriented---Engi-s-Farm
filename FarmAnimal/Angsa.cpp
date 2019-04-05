@@ -14,5 +14,6 @@ void Angsa::sound(){
 }
 
 Product* Angsa::extract() {
+    hasProduct = false;
     return new GooseEgg();
 }

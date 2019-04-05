@@ -12,5 +12,6 @@ void Sapi::sound(){
 }
 
 Product* Sapi::extract(){
+    hasProduct = false;
     return new CowMilk();
 }

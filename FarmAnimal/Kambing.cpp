@@ -11,5 +11,6 @@ void Kambing::sound(){
 }
 
 Product* Kambing::extract(){
+    hasProduct = false;
     return new GoatMilk();
 }

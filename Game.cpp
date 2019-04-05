@@ -27,8 +27,7 @@ void Game::initializeGame(){
 void Game::renderUI(){
     char dummyMap [10][11] = {'\0'};
     int x,y;
-    // system("clear");
-    // cout << "Ada " << listOfAnimal.getNeff() << " animal" << endl;
+    system("clear");
     
     // ngeluarin map
 
@@ -40,6 +39,7 @@ void Game::renderUI(){
         dummyMap[y][x] = listOfAnimal.get(i)->getRender();
     }
     //ngeluarin map
+    cout << "MAP:\n";
     for (int i=0; i<10; i++) {
         std::cout << "|";
         for(int j=0; j<11; j++) {
@@ -63,10 +63,17 @@ void Game::renderUI(){
     //     cout << "false" << endl;
     // }
     //ngeluarin inventory
-    List<Product*> bag = P.getBag();
-    for (int i=0; i<bag.getNeff(); i++) {
-        std::cout << i+1 <<". " << bag.get(i)->getName() << endl;
+    cout << "Inventory: ";
+    if (P.getBag().getNeff()==0) {
+        cout << "Kosong\n";
+    } else {
+        cout << endl;
+        List<Product*> bag = P.getBag();
+        for (int i=0; i<bag.getNeff(); i++) {
+            std::cout << i+1 <<". " << bag.get(i)->getName() << endl;
+        }
     }
+    
 
     std::cout << "Money: " << P.getMoney() << endl;
     std::cout << "Water: " << P.getWater() << endl;
@@ -77,7 +84,7 @@ void Game::forwardTime(){
     // moveAnimal();
     if (listOfAnimal.getNeff()==0) {
         cout << "End Game" << endl;
-        exit;
+        exit(0);
     } else {
         liveAnimal();
         clearDeadAnimal();
@@ -286,7 +293,7 @@ void Game::liveAnimal() {
     for (int i=0; i<listOfAnimal.getNeff(); i++) {
         listOfAnimal.get(i)->live(map);
     }
-    cout << "Menuakan animal succeed!" << endl;
+    // cout << "Menuakan animal succeed!" << endl;
 }
 
 void Game::clearDeadAnimal() {

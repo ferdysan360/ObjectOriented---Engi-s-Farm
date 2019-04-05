@@ -12,5 +12,6 @@ void Bebek::sound(){
 }
 
 Product* Bebek::extract(){
+    hasProduct = false;
     return new DuckEgg();
 }

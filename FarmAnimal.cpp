@@ -84,11 +84,11 @@ bool FarmAnimal::isAreaValid(int tipeAnimal, int tipeArea) {
 void FarmAnimal::live(Cell* map[10][11]) {
     if (timeLeft > 5) {
         timeLeft--;
-        move(map);
+        // move(map);
     }
     else if (timeLeft > 0) {
         eat(map);
-        move(map);
+        // move(map);
         timeLeft--;
     }
     else {
@@ -101,6 +101,7 @@ void FarmAnimal::eat(Cell* map[10][11]) {
     if (map[y][x]->isHasGrass()) {
         map[y][x]->setHasGrass(false);
         timeLeft = hungry+5+1;
+        hasProduct = true;
     }
 } //makan rumput
 
