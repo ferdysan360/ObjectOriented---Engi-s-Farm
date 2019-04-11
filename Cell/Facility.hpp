@@ -10,7 +10,5 @@ class Facility : public Cell{
         
     public:
         Facility(char renderChar, int type);
-
-        int getTypeCell();
 };
 #endif

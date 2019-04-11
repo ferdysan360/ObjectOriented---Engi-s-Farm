@@ -32,6 +32,7 @@ class FarmAnimal : public Renderable {
 		int x;
 		int y;
 		string voice;
+		bool baruMove=false;
 	public:
 		//n_FarmAnimal++; hungry = 5; hasProduct = false
 		// FarmAnimal();

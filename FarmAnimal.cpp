@@ -24,6 +24,9 @@ FarmAnimal::~FarmAnimal() {
     n_FarmAnimal--;
 } //n_FarmAnimal--;
 
+string FarmAnimal::getVoice() const{
+    return voice;
+}
 //getter
 int FarmAnimal::getTypeAnimal() const{
     return typeAnimal;
@@ -84,11 +87,11 @@ bool FarmAnimal::isAreaValid(int tipeAnimal, int tipeArea) {
 void FarmAnimal::live(Cell* map[10][11]) {
     if (timeLeft > 5) {
         timeLeft--;
-        // move(map);
+        move(map);
     }
     else if (timeLeft > 0) {
         eat(map);
-        // move(map);
+        move(map);
         timeLeft--;
     }
     else {
@@ -106,51 +109,57 @@ void FarmAnimal::eat(Cell* map[10][11]) {
 } //makan rumput
 
 void FarmAnimal::move(Cell* map[10][11]){
-    bool success = false;
-    int val = rand() % 4 + 1;
-    int tries = 1;
+    if (baruMove) {
+        baruMove=false;
+    } else {
+        bool success = false;
+        int val = rand() % 4 + 1;
+        int tries = 1;
 
-    while (!success && tries <= 4) {
-        switch (val) {
-            case 1:     // Up
-                if (isPointValid(y-1,x) && !map[y-1][x]->isOccupied() && isAreaValid(getTypeAnimal(),map[y-1][x]->getTypeCell())){
-                    map[y][x]->setOccupied(false);
-                    y--;
-                    map[y][x]->setOccupied(true);
-                    success = true;
-                }
+        while (!success && tries <= 4) {
+            switch (val) {
+                case 1:     // Up
+                    if (isPointValid(y-1,x) && !map[y-1][x]->isOccupied() && isAreaValid(getTypeAnimal(),map[y-1][x]->getTypeCell())){
+                        map[y][x]->setOccupied(false);
+                        y--;
+                        map[y][x]->setOccupied(true);
+                        success = true;
+                    }
+                    break;
+                case 2:     // Down
+                    if (isPointValid(y+1,x) && !map[y+1][x]->isOccupied() && isAreaValid(getTypeAnimal(),map[y+1][x]->getTypeCell())){
+                        map[y][x]->setOccupied(false);
+                        y++;
+                        map[y][x]->setOccupied(true);
+                        success = true;
+                    }
+                    break;
+                case 3:     // Left
+                    if (isPointValid(y,x-1) && !map[y][x-1]->isOccupied() && isAreaValid(getTypeAnimal(),map[y][x-1]->getTypeCell())){
+                        map[y][x]->setOccupied(false);
+                        x--;
+                        map[y][x]->setOccupied(true);
+                        success = true;
+                    }
                 break;
-            case 2:     // Down
-                if (isPointValid(y+1,x) && !map[y+1][x]->isOccupied() && isAreaValid(getTypeAnimal(),map[y+1][x]->getTypeCell())){
-                    map[y][x]->setOccupied(false);
-                    y++;
-                    map[y][x]->setOccupied(true);
-                    success = true;
-                }
-                break;
-            case 3:     // Left
-                if (isPointValid(y,x-1) && !map[y][x-1]->isOccupied() && isAreaValid(getTypeAnimal(),map[y][x-1]->getTypeCell())){
-                    map[y][x]->setOccupied(false);
-                    x--;
-                    map[y][x]->setOccupied(true);
-                    success = true;
-                }
-            break;
-            case 4:     // Right
-                if (isPointValid(y,x+1) && !map[y][x+1]->isOccupied() && isAreaValid(getTypeAnimal(),map[y][x+1]->getTypeCell())){
-                    map[y][x]->setOccupied(false);
-                    x++;
-                    map[y][x]->setOccupied(true);
-                    success = true;
-                }
-                break;
+                case 4:     // Right
+                    if (isPointValid(y,x+1) && !map[y][x+1]->isOccupied() && isAreaValid(getTypeAnimal(),map[y][x+1]->getTypeCell())){
+                        map[y][x]->setOccupied(false);
+                        x++;
+                        map[y][x]->setOccupied(true);
+                        success = true;
+                    }
+                    break;
+            }
+            val++;
+            if (val > 4) {
+                val = 1;
+            }
+            tries++;
+            baruMove=true;
         }
-        val++;
-        if (val > 4) {
-            val = 1;
-        }
-        tries++;
     }
+    
 }
 
 

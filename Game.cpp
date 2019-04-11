@@ -15,7 +15,7 @@ Game::Game() {
 };
 
 void Game::initializeGame(){
-    cout << "Game inisialized!" << endl;
+    // cout << "Game inisialized!" << endl;
     readMap("map.txt");
     gameTime=0;
     placePlayer();
@@ -45,10 +45,26 @@ void Game::renderUI(){
         for(int j=0; j<11; j++) {
             if (P.getX()==j && P.getY()==i) {
                 // cout << j << i << endl;
-                std::cout << P.getRender() << "|";
+                std::cout << "\033[1;37m"<<P.getRender()<<"\033[0m" << "|";
             }
             else if (dummyMap[i][j]=='\0') {
-                std::cout << map[i][j]->getRender() << "|";
+                //mixer
+                if (map[i][j]->getTypeCell()==1 || map[i][j]->getTypeCell()==2 || map[i][j]->getTypeCell()==3) {
+                    std::cout << "\033[1;44;33m"<< map[i][j]->getRender() <<"\033[0m" << "|";
+                } 
+                //barn
+                else if (map[i][j]->getTypeCell()==4) {
+                    std::cout << "\033[1;41;37m"<< map[i][j]->getRender() <<"\033[0m" << "|";
+                }
+                //coop
+                else if (map[i][j]->getTypeCell()==5) {
+                    std::cout << "\033[1;43;30m"<< map[i][j]->getRender() <<"\033[0m" << "|";
+                }
+                //grassland
+                else if (map[i][j]->getTypeCell()==6) {
+                    std::cout << "\033[1;42;30m"<< map[i][j]->getRender() <<"\033[0m" << "|";
+                }
+                // std::cout << map[i][j]->getRender() << "|";
             } else {
                 std::cout << dummyMap[i][j] << "|";
             }
@@ -250,7 +266,7 @@ void Game::placeAnimal() {
             berhasil = true;
         }
     }
-    cout << "Place Animal Succeed!" << endl;
+    // cout << "Place Animal Succeed!" << endl;
 };
 
 void Game::placePlayer() {
@@ -275,7 +291,7 @@ void Game::placePlayer() {
             berhasil = true;
         }
     }
-    cout << "Placed player to: " << x << " " << y << endl;
+    // cout << "Placed player to: " << x << " " << y << endl;
 }
 
 void Game::movePlayer(int direction) {

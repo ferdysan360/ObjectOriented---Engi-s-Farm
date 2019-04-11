@@ -11,6 +11,5 @@ class Land : public Cell{
     public:
         Land(char renderChar, int type);
 
-        int getTypeCell();
 };
 #endif

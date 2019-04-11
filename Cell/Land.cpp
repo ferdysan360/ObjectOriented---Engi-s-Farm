@@ -3,7 +3,3 @@
 Land::Land(char renderChar, int type): Cell(renderChar,type,false) {        
     setHasGrass(true);
 }
-
-int Land::getTypeCell() {
-    return 2;
-}
